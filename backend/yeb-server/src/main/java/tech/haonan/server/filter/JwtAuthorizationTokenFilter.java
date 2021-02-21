@@ -37,6 +37,7 @@ public class JwtAuthorizationTokenFilter extends OncePerRequestFilter {
         if (null != authHeader && authHeader.startsWith(tokenHead) ){
             String authToken = authHeader.substring(tokenHead.length());
             String username = jwtUtils.getUsernameFromToken(authToken);
+            // 理论上不可能出现token存在但是未登录的情况 因为只要token满足规则(未过期或者非伪造) username 写了就写了吧
             // token 存在 但是未登录
             if (username != null && null == SecurityContextHolder.getContext().getAuthentication()){
                 // 登录
