@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 public interface IAdminService extends IService<Admin> {
 
-    CommonResponse login(String username, String password, HttpServletRequest request);
+    CommonResponse login(String username, String password, String verificationCode, HttpServletRequest request);
 
     Admin getAdminByUsername(String username);
 }

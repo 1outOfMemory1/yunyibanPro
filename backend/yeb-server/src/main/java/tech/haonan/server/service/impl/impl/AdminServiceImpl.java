@@ -51,11 +51,19 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
      * 登录之后返回token
      * @param username 用户名
      * @param password 密码
+     * @param verificationCode 验证码
      * @param request 请求
      * @return 返回token
      */
     @Override
-    public CommonResponse login(String username, String password, HttpServletRequest request) {
+    public CommonResponse login(String username, String password, String verificationCode, HttpServletRequest request) {
+
+        String captcha = (String)request.getSession().getAttribute("captcha");
+        // 这里需要判断captcha是否是null 因为怕之前没有请求过验证码接口 不过前端不会发生这种情况 因为 前端肯定先请求验证码
+        if(verificationCode==null || verificationCode.equals("") || captcha==null || !captcha.equals(verificationCode)){
+            return CommonResponse.error("验证码错误");
+        }
+
         // 登录
         UserDetails userDetails = userDetailsService.loadUserByUsername(username);
         if(null == userDetails || !passwordEncoder.matches(password,userDetails.getPassword())){

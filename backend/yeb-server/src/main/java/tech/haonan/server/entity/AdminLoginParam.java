@@ -15,4 +15,8 @@ public class AdminLoginParam {
     private String username;
     @ApiModelProperty(value = "密码",required = true)
     private String password;
+    @ApiModelProperty(value = "验证码",required = true)
+    private String verificationCode;
+
+
 }
