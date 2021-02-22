@@ -6,7 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("tech.haonan.server.mapper")
+//@MapperScan("tech.haonan.server.mapper")
 public class YunYiBanApplication
 {
     public static void main( String[] args )

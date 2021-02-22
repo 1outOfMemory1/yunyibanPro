@@ -1,6 +1,7 @@
 package tech.haonan.server.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
 import tech.haonan.server.entity.MailLog;
 
 /**
@@ -11,6 +12,7 @@ import tech.haonan.server.entity.MailLog;
  * @author haonan
  * @since 2021-02-20
  */
+@Mapper
 public interface MailLogMapper extends BaseMapper<MailLog> {
 
 }

@@ -21,4 +21,8 @@
         id, name, phone, telephone, address, enabled, username, password, userFace, remark
     </sql>
 
+    <select id="getMenusByAdminId" resultType="tech.haonan.server.entity.Menu">
+
+    </select>
+
 </mapper>

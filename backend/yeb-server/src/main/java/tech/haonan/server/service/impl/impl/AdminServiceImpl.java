@@ -5,18 +5,21 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import tech.haonan.server.entity.Admin;
 import tech.haonan.server.entity.CommonResponse;
+import tech.haonan.server.entity.Menu;
 import tech.haonan.server.mapper.AdminMapper;
 import tech.haonan.server.service.impl.IAdminService;
 import tech.haonan.server.util.JwtUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -96,4 +99,6 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
         return adminMapper.selectOne(new QueryWrapper<Admin>().eq("username",username)
         .eq("enabled",true));
     }
+
+
 }
